@@ -1,0 +1,10 @@
+<div>
+  <h2>Logga in</h2>
+  <form (ngSubmit)="onSubmit()">
+    <input [(ngModel)]="username" name="username" placeholder="Användarnamn" required />
+    <input [(ngModel)]="password" type="password" name="password" placeholder="Lösenord" required />
+    <button type="submit">Logga in</button>
+  </form>
+
+  <p *ngIf="error" class="error">{{ error }}</p>
+</div>
