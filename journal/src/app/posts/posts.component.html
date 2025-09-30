@@ -1,0 +1,26 @@
+<div>
+  <h2>Mina Inlägg</h2>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <!-- Formulär för nytt inlägg -->
+  <div>
+    <textarea [(ngModel)]="newContent" placeholder="Skriv ditt inlägg"></textarea>
+    <select [(ngModel)]="newStatus">
+      <option value="HAPPY">Happy</option>
+      <option value="SAD">Sad</option>
+      <option value="NEUTRAL">Neutral</option>
+    </select>
+    <button (click)="addPost()">Lägg till inlägg</button>
+  </div>
+
+  <hr>
+
+  <!-- Lista med inlägg -->
+  <ul>
+    <li *ngFor="let post of posts">
+      <strong>{{ post.status }}</strong> - {{ post.content }}
+      <em>({{ post.date }})</em>
+    </li>
+  </ul>
+</div>
