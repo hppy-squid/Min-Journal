@@ -1,26 +1,64 @@
-<div>
-  <h2>Mina Inlägg</h2>
+<div class="journal-container">
+  <h2 class="page-title">📔 Min Journal</h2>
 
-  <div *ngIf="error" class="error">{{ error }}</div>
-
-  <!-- Formulär för nytt inlägg -->
-  <div>
-    <textarea [(ngModel)]="newContent" placeholder="Skriv ditt inlägg"></textarea>
-    <select [(ngModel)]="newStatus">
-      <option value="HAPPY">Happy</option>
-      <option value="SAD">Sad</option>
-      <option value="NEUTRAL">Neutral</option>
-    </select>
-    <button (click)="addPost()">Lägg till inlägg</button>
+  <!-- Felmeddelande -->
+  <div *ngIf="error" class="error-message">
+    {{ error }}
   </div>
 
-  <hr>
+  <!-- Formulär för nytt inlägg -->
+  <div class="new-post">
+    <h3>Skriv nytt inlägg</h3>
+    <textarea [(ngModel)]="newContent" placeholder="Skriv ditt inlägg"></textarea>
+    <div class="controls">
+      <select [(ngModel)]="newStatus">
+        <option value="HAPPY">😊 Happy</option>
+        <option value="SAD">😢 Sad</option>
+        <option value="ANGRY">😐 Angry</option>
+        <option value="TIRED">😕 Tired</option>
+      </select>
+      <button (click)="addPost()">Lägg till</button>
+    </div>
+  </div>
+
+  <hr />
 
   <!-- Lista med inlägg -->
-  <ul>
-    <li *ngFor="let post of posts">
-      <strong>{{ post.status }}</strong> - {{ post.content }}
-      <em>({{ post.date }})</em>
-    </li>
-  </ul>
+  <div class="posts">
+    <h3>Dina inlägg</h3>
+    <ul>
+      <li *ngFor="let post of posts" class="post-item">
+        <span class="status-tag" [ngClass]="post.status">{{ post.status }}</span>
+        <span class="content">{{ post.content }}</span>
+        <span class="date">({{ post.date }})</span>
+      </li>
+    </ul>
+  </div>
+
+  <hr />
+
+  <!-- Statistik -->
+  <div class="statistics">
+    <h3>Statistik</h3>
+    <form (ngSubmit)="loadStatistics()" class="stat-form">
+     <label>Startdatum:</label>
+  <input type="date" [(ngModel)]="startDate" name="startDate" required />
+
+  <label>Slutdatum:</label>
+  <input type="date" [(ngModel)]="endDate" name="endDate" required />
+
+  <button type="submit">Visa statistik</button>
+</form>
+
+<div *ngIf="statistics">
+  <h3>Resultat ({{ statistics.startDate }} – {{ statistics.endDate }})</h3>
+
+  <!-- Pie chart -->
+  <canvas baseChart
+    [data]="statusChartData"
+    [options]="statusChartOptions"
+    chartType="pie">
+  </canvas>
+    </div>
+  </div>
 </div>
