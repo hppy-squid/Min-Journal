@@ -30,7 +30,7 @@
       <li *ngFor="let post of posts" class="post-item">
         <span class="status-tag" [ngClass]="post.status">{{ post.status }}</span>
         <span class="content">{{ post.content }}</span>
-        <span class="date">({{ post.date }})</span>
+        <span class="date">({{ post.date | date:"d MMMM y 'klockan' HH:mm":"sv-SE" }})</span>
       </li>
     </ul>
   </div>
