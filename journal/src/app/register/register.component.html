@@ -1,0 +1,23 @@
+<div class="auth-container">
+  <h2>Registrera dig</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Användarnamn</label>
+      <input id="username" [(ngModel)]="username" name="username" required>
+    </div>
+
+    <div>
+      <label for="email">E-post</label>
+      <input id="email" type="email" [(ngModel)]="email" name="email" required>
+    </div>
+
+    <div>
+      <label for="password">Lösenord</label>
+      <input id="password" type="password" [(ngModel)]="password" name="password" required>
+    </div>
+
+    <button type="submit">Skapa konto</button>
+  </form>
+
+  <p>Har du redan ett konto? <a routerLink="/login">Logga in här</a></p>
+</div>
