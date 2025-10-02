@@ -1,0 +1,14 @@
+<header class="app-header">
+  <h1 *ngIf="username; else guestHeader">
+    {{ username }}'s Journal
+  </h1>
+
+  <ng-template #guestHeader>
+    <h1>Logga in till din Journal</h1>
+  </ng-template>
+
+   <div class="header-actions" *ngIf="username">
+    <button (click)="logout()">Logga ut</button>
+  </div>
+</header>
+
