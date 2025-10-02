@@ -12,15 +12,15 @@ export class AuthService {
     return this.http.post<any>(`${this.baseUrl}/login`, { username, password })
       .pipe(
         tap(response => {
-          console.log("✅ API response:", response);  
+          console.log("✅ API response:", response);
           localStorage.setItem('token', response.token);
           localStorage.setItem('username', response.username);
         })
       );
   }
 
-  register(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/register`, { username, password });
+  register(username: string, email: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/register`, { username, email, password });
   }
 
   logout() {
