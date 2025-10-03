@@ -15,12 +15,12 @@ export class HeaderComponent {
   ngOnInit() {
     this.username = localStorage.getItem('username');
   }
-  
+
 constructor(private router: Router) {}
 
   logout() {
     localStorage.removeItem('username');
-    // ev. även ta bort JWT/token här
+   
     this.username = null;
     this.router.navigate(['/login']);
   }

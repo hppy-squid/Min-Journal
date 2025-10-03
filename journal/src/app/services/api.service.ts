@@ -36,12 +36,12 @@ export class ApiService {
 
   getPosts(): Observable<PostDto[]> {
 
-    const token = localStorage.getItem('token'); // hämta token från localStorage
+    const token = localStorage.getItem('token');
 
     if (!token) {
     console.error('No authentication token found');
-    // Handle this error appropriately
-    return new Observable(); // Or throw an error
+
+    return new Observable();
   }
 
   const headers = new HttpHeaders({
@@ -57,7 +57,7 @@ export class ApiService {
 
 
   getStatistics(startDate: string, endDate: string): Observable<StatisticsDto> {
-    const token = localStorage.getItem('token'); // hämta token från localStorage
+    const token = localStorage.getItem('token');
     if (!token) {
       console.error('No authentication token found');
   }

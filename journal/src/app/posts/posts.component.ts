@@ -28,7 +28,7 @@ export class PostsComponent{
     datasets: [
       {
         data: [],
-        backgroundColor: ['#4caf50', '#f44336', '#9e9e9e'] // HAPPY, SAD, NEUTRAL
+        backgroundColor: ['#4caf50', '#f44336', '#9e9e9e']
       }
     ]
   };
@@ -87,7 +87,7 @@ export class PostsComponent{
           return;
         }
 
-        // Mappa labels och värden från API-svaret
+
         const labels = Object.keys(data.statusPercentages);
         const values = Object.values(data.statusPercentages);
 
@@ -98,11 +98,11 @@ export class PostsComponent{
               data: values,
               backgroundColor: labels.map(label => {
                 switch (label) {
-                  case 'HAPPY': return '#4caf50'; // Grön
-                  case 'SAD': return '#f44336';   // Röd
-                  case 'ANGRY': return '#ff9800'; // Orange
-                  case 'NEUTRAL': return '#9e9e9e'; // Grå
-                  default: return '#2196f3';      // Standard (blå)
+                  case 'HAPPY': return '#4caf50'; 
+                  case 'SAD': return '#f44336';
+                  case 'ANGRY': return '#ff9800';
+                  case 'NEUTRAL': return '#9e9e9e';
+                  default: return '#2196f3';
                 }
               })
             }
