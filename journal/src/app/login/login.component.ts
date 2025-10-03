@@ -9,7 +9,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule, CommonModule, RouterLink],
-  templateUrl: 'login.component.html'
+  templateUrl: 'login.component.html',
+  styleUrls: ['login.compnent.css']
 })
 export class LoginComponent {
   username = '';
