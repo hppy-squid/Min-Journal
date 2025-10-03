@@ -1,12 +1,12 @@
 <div class="journal-container">
   <h2 class="page-title">📔 Min Journal</h2>
 
-  <!-- Felmeddelande -->
+
   <div *ngIf="error" class="error-message">
     {{ error }}
   </div>
 
-  <!-- Formulär för nytt inlägg -->
+
   <div class="new-post">
     <h3>Skriv nytt inlägg</h3>
     <textarea [(ngModel)]="newContent" placeholder="Skriv ditt inlägg"></textarea>
@@ -23,7 +23,7 @@
 
   <hr />
 
-  <!-- Lista med inlägg -->
+
   <div class="posts">
     <h3>Dina inlägg</h3>
     <ul>
@@ -37,7 +37,7 @@
 
   <hr />
 
-  <!-- Statistik -->
+
   <div class="statistics">
     <h3>Statistik</h3>
     <form (ngSubmit)="loadStatistics()" class="stat-form">
@@ -53,7 +53,7 @@
 <div *ngIf="statistics">
   <h3>Resultat ({{ statistics.startDate }} – {{ statistics.endDate }})</h3>
 
-  <!-- Pie chart -->
+
   <canvas baseChart
     [data]="statusChartData"
     [options]="statusChartOptions"
